@@ -5,6 +5,11 @@
   align-items: center;
   cursor: pointer;
 
+  &_disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   &:hover svg {
     fill: $blue-accent-color;
   }

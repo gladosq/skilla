@@ -9,6 +9,7 @@ import { getRecordFetcher } from '@/api/calls';
 import { useEffect, useRef, useState } from 'react';
 import { streamToBlob } from '@/utils/utils';
 import useRecordStore from '@/store/record';
+import clsx from 'clsx';
 
 type AudioPlayerComponentProps = {
   duration: string;
@@ -21,6 +22,7 @@ export default function AudioPlayerComponent({ duration, recordId, partnershipId
   const [bufferUrl, setBufferUrl] = useState<string>('');
   const { record, setRecord } = useRecordStore();
   const audioPlayerRef = useRef<AudioPlayer>(null);
+  const downloadLinkRef = useRef<HTMLAnchorElement>(null);
 
   const { mutate } = useMutation({ mutationFn: getRecordFetcher });
 
@@ -67,6 +69,14 @@ export default function AudioPlayerComponent({ duration, recordId, partnershipId
     </button>
   );
 
+  const handleDownload = () => {
+    if (bufferUrl && downloadLinkRef.current) {
+      const url = bufferUrl;
+      downloadLinkRef.current.href = url;
+      downloadLinkRef.current.click();
+    }
+  };
+
   return (
     <div className={s.root}>
       <AudioPlayer
@@ -80,14 +90,17 @@ export default function AudioPlayerComponent({ duration, recordId, partnershipId
           RHAP_UI.CURRENT_TIME,
           !bufferUrl ? preloadPlayButton : RHAP_UI.MAIN_CONTROLS,
           RHAP_UI.PROGRESS_BAR,
-          <button
-            className={s.button}
-            onClick={() => {
-              console.log('Upload');
-            }}
-          >
-            <UploadIcon />
-          </button>
+          <>
+            <button
+              className={clsx(s.button, !bufferUrl && s.button_disabled)}
+              onClick={handleDownload}
+            >
+              <UploadIcon />
+            </button>
+            <a ref={downloadLinkRef} style={{ display: 'none' }} download="audio.mp3">
+              Download
+            </a>
+          </>
         ]}
         customControlsSection={[]}
         customIcons={{

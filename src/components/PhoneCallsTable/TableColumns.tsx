@@ -9,6 +9,8 @@ import s from './PhonecallsTable.module.scss';
 import AudioPlayerComponent from "../AudioPlayerComponent/AudioPlayerComponent";
 import { qualityTags } from "../const";
 import DropdownArrowIcon from "@/ui/DropdownArrowIcon";
+import IncomingMissIcon from "@/ui/IncomingMissIcon";
+import OutgoingMissIcon from "@/ui/OutgoingMissIcon";
 
 export const tableColumns: TableColumnsType<CallsDataType> = [
   {
@@ -16,9 +18,15 @@ export const tableColumns: TableColumnsType<CallsDataType> = [
     dataIndex: 'in_out',
     key: 'in_out',
     width: '5%',
-    render: (type: number) => {
-      if (type === 0) return <IncomingIcon />;
-      if (type === 1) return <OutgoingIcon />;
+    render: (type: number, record) => {
+      if (type === 0) {
+        if (record.status === 'Дозвонился') return <IncomingIcon />;
+        return <IncomingMissIcon/>
+      };
+      if (type === 1) {
+        if (record.status === 'Дозвонился') return <OutgoingIcon />;
+        return <OutgoingMissIcon/>
+      };
     },
   },
   {

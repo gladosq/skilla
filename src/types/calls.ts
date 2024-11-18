@@ -10,6 +10,7 @@ export type CallsDataType = {
   record: string;
   partnership_id: string;
   errors: string[];
+  status: string;
 };
 
 export enum FilterByTypeEnum {
