@@ -27,4 +27,4 @@ npm run build
 ```
 
 ## Деплой
-...
+https://skilla-table.netlify.app/
