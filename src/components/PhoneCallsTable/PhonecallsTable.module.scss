@@ -1,0 +1,69 @@
+.root {
+  margin-top: 80px;
+  position: relative;
+}
+
+.person {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.tag {
+  font-size: 14px;
+}
+
+.error {
+  color: #EA1A4F;
+  font-size: 14px;
+}
+
+.emptyData {
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactCompany,
+.sourse {
+  color: $text-color-secondary;
+}
+
+.row {
+  .durationCell {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+  }
+
+  .audio {
+    width: 100%;
+    transform: translateX(0);
+    transition: 0.2s ease-in-out;
+    transition-property: opacity, transform;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .time {
+    transition: 0.2s all ease-in;
+  }
+
+  &:hover,
+  &_active {
+    .audio {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(36px);
+    }
+
+    .time {
+      transform: translateX(40px);
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

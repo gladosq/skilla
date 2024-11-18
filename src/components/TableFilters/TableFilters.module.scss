@@ -1,0 +1,140 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.typeButton,
+.resetButton {
+  color: $text-color-secondary;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.resetButton {
+  margin-right: auto;
+  margin-left: 16px;
+
+  svg {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+.popoverWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 133px;
+}
+
+.popoverItem {
+  cursor: pointer;
+  padding: 8px 20px;
+  width: 100%;
+  line-height: 18px;
+  transition: 0.1s background ease;
+  color: #2B2D33;
+  text-align: left;
+
+  &:hover {
+    background: #DEE4FF;
+  }
+
+  &_active {
+    color: #015EF5;
+  }
+}
+
+.popoverItemDate {
+  text-align: left;
+  padding: 8px 20px;
+  width: 100%;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  cursor: pointer;
+  color: #899CB1;
+
+  &:hover {
+    background: #DEE4FF;
+    color: $text-color;
+  }
+
+  &_active {
+    color: #015EF5;
+  }
+}
+
+.innerContainer {
+  display: flex;
+}
+
+.container {
+  margin-bottom: 10px;
+  padding-left: 20px;
+
+  p {
+    margin-top: 4px;
+    margin-bottom: 6px;
+  }
+}
+
+.popoverDatePicker {
+  width: 200px;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+
+  svg {
+    transition: 0.15s fill ease;
+  }
+
+  &:hover svg {
+    fill: $blue-accent-color;
+  }
+}
+
+.dateWrapper,
+.datePicker_select {
+  display: flex;
+  align-items: center;
+}
+
+.dateWrapper {
+  gap: 10px;
+}
+
+.datePicker_select {
+  gap: 8px;
+  color: $blue-accent-color;
+  cursor: pointer;
+
+  svg {
+    transition: 0.15s fill ease;
+  }
+
+  &:hover svg {
+    fill: $blue-accent-color;
+  }
+}
+
+.rangePicker {
+  // input {
+  //   max-width: 60px;
+  // }
+
+  // input::placeholder {
+  //   // color: #ADBFDF;
+  //   font-size: 16px;
+  // }
+
+}
+
+.separator {
+  color: #ADBFDF;
+}

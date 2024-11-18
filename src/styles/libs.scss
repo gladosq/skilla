@@ -1,0 +1,93 @@
+.ant-tag.ant-tag-green {
+  color: #00A775;
+  background: #DBF8EF;
+  border-color: #28A879;
+}
+
+.ant-tag.ant-tag-blue {
+  color: black;
+}
+
+.ant-tag {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.ant-table-cell {
+  &::before {
+    background: transparent !important;
+  }
+}
+
+.rhap_progress-indicator {
+  display: none;
+}
+
+.rhap_current-time {
+  width: 46px;
+}
+
+.rhap_progress-filled {
+  background: $blue-accent-color;
+}
+
+.rhap_controls-section {
+  display: none;
+}
+
+.rhap_container {
+  background: #EAF0FA;
+  border-radius: 48px;
+  padding: 4px 18px;
+  box-shadow: none;
+}
+
+.rhap_main-controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.rhap_download-progress,
+.rhap_progress-bar {
+  background: #ADBFDF;
+}
+
+.rhap_progress-container {
+  margin: 0;
+}
+
+.rhap_time {
+  font-size: 15px;
+}
+
+.ant-picker-input {
+  input {
+    display: block;
+    max-width: 70px;
+    font-size: 12px !important;
+    text-align: center;
+
+    &::placeholder {
+      text-align: center;
+    }
+  }
+}
+
+.ant-picker {
+  padding: 0;
+  margin-left: -4px;
+}
+
+.ant-picker-range-separator {
+  padding: 0 !important;
+}
+
+.ant-table-cell[aria-sort=descending] svg {
+  fill: $blue-accent-color;
+}
+
+.ant-table-column-title {
+  margin-right: 6px;
+}
