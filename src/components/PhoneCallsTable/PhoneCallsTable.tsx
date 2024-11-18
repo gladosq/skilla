@@ -7,8 +7,6 @@ import { CallsDataType } from "@/types/calls";
 import TableFilters from "../TableFilters/TableFilters";
 import { tableColumns } from "./TableColumns";
 import { DEFAULT_PAGE_SIZE } from "../const";
-import useRecordStore from "@/store/record";
-import clsx from "clsx";
 
 export type FiltersType = {
   date_start?: string;
@@ -151,12 +149,6 @@ export default function PhoneCallsTable() {
     });
   };
 
-  const { record: recordItemId } = useRecordStore();
-
-  const rowClassName = (record: any) => {
-    return clsx(s.row, record.id === recordItemId && s.row_active);
-  };
-
   return (
     <div className={s.root}>
       <TableFilters
@@ -167,7 +159,7 @@ export default function PhoneCallsTable() {
         dataSource={calls}
         scroll={{ x: 1440 }}
         loading={isLoading}
-        rowClassName={rowClassName}
+        rowClassName={s.row}
         pagination={{
           pageSize: 50,
           ...(!calls.length && { current: 1 }),

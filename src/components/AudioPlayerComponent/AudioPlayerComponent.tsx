@@ -36,6 +36,7 @@ export default function AudioPlayerComponent({ duration, recordId, partnershipId
     if (audioPlayerRef.current && audioPlayerRef.current.audio.current) {
       audioPlayerRef.current.audio.current.pause();
       audioPlayerRef.current.audio.current.currentTime = 0;
+      setBufferUrl('');
     }
   };
 
@@ -78,7 +79,7 @@ export default function AudioPlayerComponent({ duration, recordId, partnershipId
   };
 
   return (
-    <div className={s.root}>
+    <div className={clsx(s.root)}>
       <AudioPlayer
         ref={audioPlayerRef}
         showSkipControls={false}
