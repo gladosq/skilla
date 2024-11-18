@@ -11,7 +11,6 @@ import { qualityTags } from "../const";
 import DropdownArrowIcon from "@/ui/DropdownArrowIcon";
 import IncomingMissIcon from "@/ui/IncomingMissIcon";
 import OutgoingMissIcon from "@/ui/OutgoingMissIcon";
-import useRecordStore from "@/store/record";
 
 export const tableColumns: TableColumnsType<CallsDataType> = [
   {
@@ -105,7 +104,7 @@ export const tableColumns: TableColumnsType<CallsDataType> = [
     },
     render: (time: number, record) => {
       const formattedDuration = secondsToMinutesSeconds(time);
-      
+
       return (
         !!time && record.record && <div className={s.durationCell}>
           <div className={s.audio}>
