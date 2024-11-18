@@ -79,36 +79,42 @@ export default function AudioPlayerComponent({ duration, recordId, partnershipId
   };
 
   return (
-    <div className={clsx(s.root)}>
-      <AudioPlayer
-        ref={audioPlayerRef}
-        showSkipControls={false}
-        showJumpControls={false}
-        src={bufferUrl}
-        footer={false}
-        defaultCurrentTime={<span>{duration}</span>}
-        customProgressBarSection={[
-          RHAP_UI.CURRENT_TIME,
-          !bufferUrl ? preloadPlayButton : RHAP_UI.MAIN_CONTROLS,
-          RHAP_UI.PROGRESS_BAR,
-          <>
-            <button
-              className={clsx(s.button, !bufferUrl && s.button_disabled)}
-              onClick={handleDownload}
-            >
-              <UploadIcon />
-            </button>
-            <a ref={downloadLinkRef} style={{ display: 'none' }} download="audio.mp3">
-              Download
-            </a>
-          </>
-        ]}
-        customControlsSection={[]}
-        customIcons={{
-          play: <PlayIcon />,
-          pause: <PauseIcon />
-        }}
-      />
+    <div className={clsx(s.root, Boolean(bufferUrl) && s.root_playing)}>
+      <div id={'player-audio'}>
+        <AudioPlayer
+          className={s.player}
+          ref={audioPlayerRef}
+          showSkipControls={false}
+          showJumpControls={false}
+          src={bufferUrl}
+          footer={false}
+          defaultCurrentTime={<span>{duration}</span>}
+          customProgressBarSection={[
+            RHAP_UI.CURRENT_TIME,
+            !bufferUrl ? preloadPlayButton : RHAP_UI.MAIN_CONTROLS,
+            RHAP_UI.PROGRESS_BAR,
+            <>
+              <button
+                className={clsx(s.button, !bufferUrl && s.button_disabled)}
+                onClick={handleDownload}
+              >
+                <UploadIcon />
+              </button>
+              <a ref={downloadLinkRef} style={{ display: 'none' }} download="audio.mp3">
+                Download
+              </a>
+            </>
+          ]}
+          customControlsSection={[]}
+          customIcons={{
+            play: <PlayIcon />,
+            pause: <PauseIcon />
+          }}
+        />
+      </div>
+      <div className={s.time} id={'time-audio'}>
+        {duration}
+      </div>
     </div>
   );
 }

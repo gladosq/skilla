@@ -21,11 +21,11 @@ export const tableColumns: TableColumnsType<CallsDataType> = [
     render: (type: number, record) => {
       if (type === 0) {
         if (record.status === 'Дозвонился') return <IncomingIcon />;
-        return <IncomingMissIcon/>
+        return <IncomingMissIcon />
       };
       if (type === 1) {
         if (record.status === 'Дозвонился') return <OutgoingIcon />;
-        return <OutgoingMissIcon/>
+        return <OutgoingMissIcon />
       };
     },
   },
@@ -39,7 +39,7 @@ export const tableColumns: TableColumnsType<CallsDataType> = [
     sorter: (a, b) => {
       return a.time.length - b.time.length;
     },
-    sortIcon: () => <DropdownArrowIcon/>,
+    sortIcon: () => <DropdownArrowIcon />,
   },
   {
     title: 'Сотрудник',
@@ -93,7 +93,7 @@ export const tableColumns: TableColumnsType<CallsDataType> = [
   },
   {
     title: 'Длительность',
-    sortIcon: () => <DropdownArrowIcon/>,
+    sortIcon: () => <DropdownArrowIcon />,
     sortDirections: ['descend'],
     dataIndex: 'time',
     key: 'time',
@@ -114,9 +114,6 @@ export const tableColumns: TableColumnsType<CallsDataType> = [
               partnershipId={record.partnership_id}
               rowId={record.id}
             />
-          </div>
-          <div className={s.time}>
-            {formattedDuration}
           </div>
         </div>
       );

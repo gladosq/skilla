@@ -39,31 +39,21 @@
     position: relative;
   }
 
-  .audio {
-    width: 100%;
-    transform: translateX(0);
-    transition: 0.2s ease-in-out;
-    transition-property: opacity, transform;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .time {
-    transition: 0.2s all ease-in;
-  }
-
-  &:hover,
-  &_active {
-    .audio {
+  &:hover {
+    :global(.rhap_container) {
       opacity: 1;
       pointer-events: auto;
       transform: translateX(36px);
     }
 
-    .time {
+    :global(#time-audio) {
       transform: translateX(40px);
       opacity: 0;
       pointer-events: none;
     }
+  }
+
+  .audio {
+    width: 100%;
   }
 }
